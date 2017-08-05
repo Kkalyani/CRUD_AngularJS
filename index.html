@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html ng-app="myapp">
+<head>
+    <title>CRUD in AngularJS</title>
+    <script src="https://code.angularjs.org/1.5.2/angular.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body ng-controller="productController">
+    <div id="container">
+    <h3>Product List</h3>
+    <table cellpadding="2" cellspacing="2" border="1">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Quantity</th>
+            <th>Options</th>
+        </tr>
+        <tr ng-repeat="product in listProducts">
+            <td>{{product.id}}</td>
+            <td>{{product.name}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.quantity}}</td>
+            <td>
+                <a href="#" ng-click="delete(product.id)">Delete</a>
+              | <a href="#" ng-click="selectEdit(product.id)">Edit</a>
+            </td>
+        </tr>
+    </table>
+    <h3>Product Information</h3>
+    <table cellpadding="2" cellspacing="2">
+        <tr>
+            <td>Id</td>
+            <td><input type="text" ng-model="id"></td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td><input type="text" ng-model="name"></td>
+        </tr>
+        <tr>
+            <td>Price</td>
+            <td><input type="text" ng-model="price"></td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td><input type="text" ng-model="quantity"></td>
+        </tr>
+         <tr>
+            <td>&nbsp</td>
+            <td>
+                <input type="button" value="Add" ng-click="Add()">
+                <input type="button" value="Save" ng-click="save()">
+                <input type="button" value="Reset" ng-click="reset()">
+            </td>
+        </tr>
+    </table>
+    </div>
+</body>
+</html>
+
